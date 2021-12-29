@@ -1,4 +1,4 @@
-package com.programming.techie.springredditclone.config;
+package com.programming.techie.springredditclone.exceptions.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

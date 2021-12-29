@@ -1,4 +1,4 @@
-package com.programming.techie.springredditclone.config;
+package com.programming.techie.springredditclone.exceptions.config;
 
 import com.programming.techie.springredditclone.security.JwtAuthenticationFilter;
 import lombok.AllArgsConstructor;

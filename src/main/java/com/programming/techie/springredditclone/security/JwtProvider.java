@@ -43,7 +43,7 @@ public class JwtProvider {
                 .setSubject(principal.getUsername())
                 .setIssuedAt(from(Instant.now()))
                 .signWith(getPrivateKey())
-                .setExpiration(Date.from(Instant.now().plusMillis(jwtExpirationInMillis)))
+                .setExpiration(Date.from(Instant.now().plusSeconds(3000)))
                 .compact();
     }
 
@@ -52,7 +52,7 @@ public class JwtProvider {
                 .setSubject(username)
                 .setIssuedAt(from(Instant.now()))
                 .signWith(getPrivateKey())
-                .setExpiration(Date.from(Instant.now().plusMillis(jwtExpirationInMillis)))
+                .setExpiration(Date.from(Instant.now().plusSeconds(3000)))
                 .compact();
     }
 
