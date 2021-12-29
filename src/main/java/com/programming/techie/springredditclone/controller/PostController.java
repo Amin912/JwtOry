@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.programming.techie.springredditclone.dto.PostRequest;
 import com.programming.techie.springredditclone.dto.PostResponse;
 import com.programming.techie.springredditclone.service.PostService;
+import java.security.Principal;
 import lombok.AllArgsConstructor;
 import org.json.JSONObject;
 import org.springframework.http.*;
@@ -53,12 +54,17 @@ public class PostController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createPost(@RequestBody PostRequest postRequest) {
+    public ResponseEntity<Void> createPost(@RequestBody PostRequest postRequest, Principal principal) {
 
 
-        if (!hasAccess("zakariaziani", "create", "comment")) {
+//        if (!hasAccess("zakariaziani", "create", "comment")) {
+//            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+//        }
+
+        if (!hasAccess(principal.getName(), "create", "comment")) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-        } else {
+        }
+        else {
             postService.save(postRequest);
             return new ResponseEntity<>(HttpStatus.CREATED);
         }

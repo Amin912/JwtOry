@@ -2,6 +2,7 @@ package com.programming.techie.springredditclone.controller;
 
 import com.programming.techie.springredditclone.dto.CommentsDto;
 import com.programming.techie.springredditclone.service.CommentService;
+import java.security.Principal;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,8 @@ public class CommentsController {
     private final CommentService commentService;
 
     @PostMapping
-    public ResponseEntity<Void> createComment(@RequestBody CommentsDto commentsDto) {
+    public ResponseEntity<Void> createComment(@RequestBody CommentsDto commentsDto, Principal pr) {
+        
         commentService.save(commentsDto);
         return new ResponseEntity<>(CREATED);
     }

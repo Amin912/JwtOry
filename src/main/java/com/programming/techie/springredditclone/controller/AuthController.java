@@ -1,5 +1,4 @@
 package com.programming.techie.springredditclone.controller;
-
 import com.programming.techie.springredditclone.dto.AuthenticationResponse;
 import com.programming.techie.springredditclone.dto.LoginRequest;
 import com.programming.techie.springredditclone.dto.RefreshTokenRequest;
@@ -49,5 +48,5 @@ public class AuthController {
     public ResponseEntity<String> logout(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest) {
         refreshTokenService.deleteRefreshToken(refreshTokenRequest.getRefreshToken());
         return ResponseEntity.status(OK).body("Refresh Token Deleted Successfully!!");
-    }
+    } 
 }
